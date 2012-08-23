@@ -1,6 +1,7 @@
 silo = require '../'
 should = require 'should'
 redis = require 'redis'
+mongo = require 'mongodb'
 require 'mocha'
 
 for adapter,v of silo when adapter isnt 'Store'

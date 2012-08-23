@@ -5,7 +5,7 @@ getId = =>
   return rand()+rand()+rand()
 
 class Redis extends Store
-  constructor: ({@id, @pub, @sub, @main}) ->
+  constructor: ({@id, @pub, @sub, @main}={}) ->
     super
     throw 'Missing required redis clients' unless @pub and @sub and @main
     @id ?= getId()
@@ -63,6 +63,7 @@ class Redis extends Store
     @pub.end()
     @sub.end()
     @main.end()
+    @subscribers = {}
     fn? null
     return @
 

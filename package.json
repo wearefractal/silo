@@ -1,7 +1,7 @@
 {
    "name":"silo",
    "description":"Generic PubSub storage adapters",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/silo",
    "repository":"git://github.com/wearefractal/silo.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
@@ -13,7 +13,8 @@
    "devDependencies":{
       "mocha":"*",
       "should":"*",
-      "redis":"*"
+      "redis":"*",
+      "mongoskin":"*"
    },
    "scripts":{
       "test":"mocha --compilers coffee:coffee-script"

@@ -52,11 +52,18 @@ store = new silo.Memory()
 ### Redis
 
 ```coffee-script
-reddis = require 'redis'
+redis = require 'redis'
 store = new silo.Redis
   main: redis.createClient()
   pub: redis.createClient()
   sub: redis.createClient()
+```
+
+### MongoDB
+
+```coffee-script
+store = new silo.Mongo
+  db: 'mongo://localhost:27017/silo?auto_reconnect'
 ```
 
 ## LICENSE

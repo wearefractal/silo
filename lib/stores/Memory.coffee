@@ -43,6 +43,7 @@ class Memory extends Store
 
   destroy: (fn) ->
     @data = {}
+    @subscribers = {}
     fn? null
     return @
 
