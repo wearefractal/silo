@@ -1,14 +1,14 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/silo.png?branch=master)
 
 ## Information
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>silo</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>Generic PubSub storage adapters</td>
 </tr>
 <tr>
 <td>Node Version</td>
@@ -16,15 +16,48 @@
 </tr>
 </table>
 
+Tired of writing the same logic for dealing with storage over and over? Don't need the complex Schema layer an ORM provides? silo is the solution you're looking for.
+
 ## Usage
 
+Each storage adapter implements the same set of functions. silo has a set of very strict tests to make sure each adapter functions the same way.
+
 ```coffee-script
-NOTHING HERE YET
+silo = require 'silo'
+store = new silo.<Adapter Name>()
+store.set 'key', 'val', (err) ->
+store.get 'key', (err, val) -> 
+store.has 'key', (err, exists) ->
+store.del 'key', (err) ->
+
+myFn = (key, val) ->
+store.subscribe 'channel', myFn # listen to channel for message
+store.unsubscribe 'channel', myFn # unsubscribe listener
+store.unsubscribe 'channel' # unsubscribe all listeners for channel
+store.unsubscribe() # unsubscribe everything
+
+store.publish 'channel', 'message!' # publish message to channel
+
+store.destroy (err) ->
 ```
 
-## Examples
+## Available Adapters
 
-You can view more examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
+### Memory
+
+```coffee-script
+store = new silo.Memory()
+```
+
+### Redis
+
+```coffee-script
+reddis = require 'redis'
+store = new silo.Redis
+  main: redis.createClient()
+  pub: redis.createClient()
+  sub: redis.createClient()
+```
 
 ## LICENSE
 

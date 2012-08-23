@@ -1,9 +1,9 @@
 {
-   "name":"APPNAME",
-   "description":"Nothing here yet",
+   "name":"silo",
+   "description":"Generic PubSub storage adapters",
    "version":"0.0.1",
-   "homepage":"http://github.com/wearefractal/APPNAME",
-   "repository":"git://github.com/wearefractal/APPNAME.git",
+   "homepage":"http://github.com/wearefractal/silo",
+   "repository":"git://github.com/wearefractal/silo.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "main":"./index.js",
    
@@ -12,7 +12,8 @@
    },
    "devDependencies":{
       "mocha":"*",
-      "should":"*"
+      "should":"*",
+      "redis":"*"
    },
    "scripts":{
       "test":"mocha --compilers coffee:coffee-script"
@@ -23,7 +24,7 @@
    "licenses":[
       {
          "type":"MIT",
-         "url":"http://github.com/wearefractal/APPNAME/raw/master/LICENSE"
+         "url":"http://github.com/wearefractal/silo/raw/master/LICENSE"
       }
    ]
 }
